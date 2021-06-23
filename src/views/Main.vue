@@ -51,7 +51,7 @@
 import Header from "../components/header.vue";
 import Sideber from "../components/sideber.vue";
 export default {
-  name: "About",
+  name: "Main",
 
   components: {
     Header,
@@ -64,6 +64,18 @@ export default {
         src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
         title: "Supermodel",
         artist: "Foster the People",
+      },
+      {
+        color: "#952175",
+        src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
+        title: "Halcyon Days",
+        artist: "Ellie Goulding",
+      },
+      {
+        color: "#952175",
+        src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
+        title: "Halcyon Days",
+        artist: "Ellie Goulding",
       },
       {
         color: "#952175",
