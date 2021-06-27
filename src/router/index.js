@@ -22,6 +22,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Main.vue"),
   },
+  {
+    path: "/main/:keyword",
+    name: "MainKeyword",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Main.vue"),
+  },
 ];
 
 const router = new VueRouter({

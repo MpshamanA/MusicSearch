@@ -4,10 +4,10 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6">
-            Application
+            アルバム検索
           </v-list-item-title>
           <v-list-item-subtitle>
-            subtext
+            検索キーワード：{{ $route.params.keyword }}
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
