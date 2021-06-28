@@ -2,21 +2,22 @@
   <div>
     <Header class="hed" />
     <div class="flex">
-      <Sideber class="" />
+      <div class="sticky">
+        <Sideber class="" />
+      </div>
       <main>
         <v-row align-content="center">
           <v-col v-for="(album, i) in albums" :key="i" cols="4">
             <v-card
-              dark
               width="500px"
               class="mt-3 ml-3"
-              color="#000"
+              color="#fff"
               :href="album.collectionViewUrl"
             >
               <div class="d-flex flex-no-wrap justify-space-around">
                 <div>
                   <v-card-title
-                    class="text-h5 color-w"
+                    class="text-h5"
                     v-text="album.collectionName"
                   ></v-card-title>
 
@@ -69,8 +70,12 @@ export default {
 main {
   border: solid 3px #ccc;
   flex: 1;
+  margin-left: 230px; /* サイドバーのwidth分marginを付与 */
 }
 .color-w {
   color: #fff;
+}
+.sticky {
+  position: fixed;
 }
 </style>

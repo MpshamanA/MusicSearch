@@ -1,5 +1,5 @@
 <template>
-  <v-card min-height="100vh" width="230">
+  <v-card min-height="100vh" width="230" dark>
     <v-navigation-drawer permanent>
       <v-list-item>
         <v-list-item-content>
@@ -29,12 +29,25 @@
 
         <v-list-item link>
           <v-list-item-icon>
-            <v-icon>mdi-view-dashboard</v-icon>
+            <v-icon>mdi-star</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
             <v-list-item-title>
-              <router-link to="/about">詳細</router-link>
+              <router-link to="/about">お気に入り</router-link>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider></v-divider>
+        <p>よく検索するアーティスト</p>
+
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon>mdi-star</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>
+              <router-link to="/about">お気に入り</router-link>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>

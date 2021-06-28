@@ -2,41 +2,31 @@
   <div>
     <Header class="hed" />
     <div class="flex">
-      <Sideber class="" />
+      <div class="sticky">
+        <Sideber class="" />
+      </div>
       <main>
         <v-row align-content="center">
-          <v-col v-for="(item, i) in items" :key="i" cols="4">
-            <v-card :color="item.color" dark width="500px" class="mt-3 ml-3">
+          <v-col v-for="(album, i) in albums" :key="i" cols="4">
+            <v-card
+              dark
+              width="500px"
+              class="mt-3 ml-3"
+              color="#000"
+              :href="album.collectionViewUrl"
+            >
               <div class="d-flex flex-no-wrap justify-space-around">
                 <div>
                   <v-card-title
-                    class="text-h5"
-                    v-text="item.title"
+                    class="text-h5 color-w"
+                    v-text="album.collectionName"
                   ></v-card-title>
 
-                  <v-card-subtitle v-text="item.artist"></v-card-subtitle>
-
-                  <v-card-actions>
-                    <v-btn
-                      v-if="item.artist === 'Ellie Goulding'"
-                      class="ml-2 mt-3"
-                      fab
-                      icon
-                      height="40px"
-                      right
-                      width="40px"
-                    >
-                      <v-icon>mdi-play</v-icon>
-                    </v-btn>
-
-                    <v-btn v-else class="ml-2 mt-5" outlined rounded small>
-                      START RADIO
-                    </v-btn>
-                  </v-card-actions>
+                  <v-card-subtitle v-text="album.artistName"></v-card-subtitle>
                 </div>
 
                 <v-avatar class="ma-3" size="125" tile>
-                  <v-img :src="item.src"></v-img>
+                  <v-img :src="album.artworkUrl100"></v-img>
                 </v-avatar>
               </div>
             </v-card>
@@ -48,6 +38,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import Header from "../components/header.vue";
 import Sideber from "../components/sideber.vue";
 export default {
@@ -57,22 +48,13 @@ export default {
     Header,
     Sideber,
   },
-  data: () => ({
-    items: [
-      {
-        color: "#1F7087",
-        src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
-        title: "Supermodel",
-        artist: "Foster the People",
-      },
-      {
-        color: "#952175",
-        src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
-        title: "Halcyon Days",
-        artist: "Ellie Goulding",
-      },
-    ],
-  }),
+  data: () => ({}),
+  methods: {},
+  computed: {
+    ...mapState({
+      albums: "albums",
+    }),
+  },
 };
 </script>
 
@@ -88,7 +70,13 @@ export default {
 }
 main {
   border: solid 3px #ccc;
-  background-color: bisque;
   flex: 1;
+  margin-left: 230px; /* サイドバーのwidth分marginを付与 */
+}
+.color-w {
+  color: #fff;
+}
+.sticky {
+  position: fixed;
 }
 </style>
