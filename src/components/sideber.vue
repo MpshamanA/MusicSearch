@@ -39,8 +39,7 @@
           </v-list-item-content>
         </v-list-item>
         <v-divider></v-divider>
-        <p>よく検索するアーティスト</p>
-
+        <p>最近検索したアーティスト</p>
         <v-list-item link>
           <v-list-item-icon>
             <v-icon>mdi-star</v-icon>

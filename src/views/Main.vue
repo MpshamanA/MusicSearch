@@ -6,31 +6,36 @@
         <Sideber class="" />
       </div>
       <main>
-        <v-row align-content="center">
-          <v-col v-for="(album, i) in albums" :key="i" cols="4">
-            <v-card
-              width="500px"
-              class="mt-3 ml-3"
-              color="#fff"
-              :href="album.collectionViewUrl"
-            >
-              <div class="d-flex flex-no-wrap justify-space-around">
-                <div>
-                  <v-card-title
-                    class="text-h5"
-                    v-text="album.collectionName"
-                  ></v-card-title>
+        <!--  <div class="title"><h1>さぁ！音楽を楽しもう</h1></div> -->
+        <div class="main">
+          <v-row align-content="center">
+            <v-col v-for="(album, i) in albums" :key="i" cols="4">
+              <v-card
+                width="500px"
+                class="mt-3 ml-3"
+                color="#fff"
+                :href="album.collectionViewUrl"
+              >
+                <div class="d-flex flex-no-wrap justify-space-around">
+                  <div>
+                    <v-card-title
+                      class="text-h5"
+                      v-text="album.collectionName"
+                    ></v-card-title>
 
-                  <v-card-subtitle v-text="album.artistName"></v-card-subtitle>
+                    <v-card-subtitle
+                      v-text="album.artistName"
+                    ></v-card-subtitle>
+                  </div>
+
+                  <v-avatar class="ma-3" size="125" tile>
+                    <v-img :src="album.artworkUrl100"></v-img>
+                  </v-avatar>
                 </div>
-
-                <v-avatar class="ma-3" size="125" tile>
-                  <v-img :src="album.artworkUrl100"></v-img>
-                </v-avatar>
-              </div>
-            </v-card>
-          </v-col>
-        </v-row>
+              </v-card>
+            </v-col>
+          </v-row>
+        </div>
       </main>
     </div>
   </div>
@@ -58,6 +63,12 @@ export default {
 </script>
 
 <style scoped>
+/*仮*/
+.title {
+  margin-left: 230px; /* サイドバーのwidth分marginを付与 */
+  margin-top: 20px;
+}
+
 .hed {
   position: fixed;
   width: 100%;
@@ -67,8 +78,7 @@ export default {
   margin-top: 64px;
   display: flex;
 }
-main {
-  border: solid 3px #ccc;
+.main {
   flex: 1;
   margin-left: 230px; /* サイドバーのwidth分marginを付与 */
 }
@@ -76,6 +86,6 @@ main {
   color: #fff;
 }
 .sticky {
-  position: fixed;
+  position: fixed; /*後に変更 */
 }
 </style>

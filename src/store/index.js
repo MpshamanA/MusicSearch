@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     drawer: null,
     albums: [],
+    keyword: "",
   },
   mutations: {
     drawerSwich(state, drawer) {

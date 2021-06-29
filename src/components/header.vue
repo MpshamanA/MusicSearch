@@ -73,17 +73,20 @@ export default {
       console.log(this.$store.state.drawer);
     },
     search() {
-      //thisを退避させる
-      const vm = this;
-      this.$router.push(`/main/${this.keyword}`);
-      //iTunesのAPIを叩いてresponseをstoreにalbumsに代入 これをMainViewで読み込む
-      this.$axios
-        .get(
-          `https://itunes.apple.com/search?term=${this.$route.params.keyword}&entity=album`
-        )
-        .then((response) => {
-          vm.$store.state.albums = response.data.results;
-        });
+      if (this.$store.state.keyword != this.keyword) {
+        //thisを退避させる
+        const vm = this;
+        this.$router.push(`/main/${this.keyword}`);
+        //iTunesのAPIを叩いてresponseをstoreにalbumsに代入 これをMainViewで読み込む
+        this.$axios
+          .get(
+            `https://itunes.apple.com/search?term=${this.$route.params.keyword}&entity=album`
+          )
+          .then((response) => {
+            vm.$store.state.albums = response.data.results;
+            vm.$store.state.keyword = vm.keyword;
+          });
+      }
     },
   },
   created() {},
