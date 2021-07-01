@@ -18,17 +18,17 @@
           <v-icon>mdi-magnify</v-icon>
         </v-btn>
       </div>
-      <v-btn v-if="!toggle" class="mr-5" elevation="2" plain>
+      <v-btn v-if="toggle" class="mr-5" elevation="2" plain @click="test2()">
         <v-icon>mdi-lock</v-icon>
         ログアウト
       </v-btn>
 
-      <v-btn v-if="toggle" class="mr-5" elevation="2" to="/" plain>
+      <v-btn v-if="!toggle" class="mr-5" elevation="2" to="/login" plain>
         <v-icon>mdi-lock-open</v-icon>
         ログイン
       </v-btn>
 
-      <v-btn v-if="toggle" class="mr-5" elevation="2" plain>
+      <v-btn v-if="!toggle" class="mr-5" elevation="2" plain @click="logout()">
         <v-icon>mdi-account</v-icon>
         新規登録
       </v-btn>
@@ -65,9 +65,13 @@ export default {
     };
   },
   methods: {
-    /* logout() {
+    logout() {
       this.$store.commit("updateIdToken", null);
-    }, */
+    },
+    test2() {
+      console.log(this.$store.state.idToken);
+      console.log(this.toggle);
+    },
     test() {
       this.$store.commit("drawerSwich", this.$store.state.drawer);
       console.log(this.$store.state.drawer);
@@ -91,13 +95,13 @@ export default {
   },
   created() {},
   mounted() {
-    /* //storeのidTokenを監視
+    //storeのidTokenを監視
     //idTokenに変化があった場合に発火
     //thisを対比させる
-    let _t = this;
+    let vm = this;
     //watchメソッドを使って監視
     this.$store.watch(
-      () => _t.$store.getters.idToken,
+      () => vm.$store.getters.idToken,
       (token) => {
         //tokenの状態（ログインの有無）によってtoggleを更新する
         this.tokenID = token;
@@ -107,7 +111,7 @@ export default {
           this.toggle = false;
         }
       }
-    ); */
+    );
   },
 };
 </script>

@@ -8,11 +8,18 @@ export default new Vuex.Store({
     drawer: null,
     albums: [],
     keyword: "",
+    idToken: null,
   },
   mutations: {
     drawerSwich(state, drawer) {
       state.drawer = !drawer;
     },
+    updateIdToken(state, idToken) {
+      state.idToken = idToken;
+    },
+  },
+  getters: {
+    idToken: (store) => store.idToken,
   },
   actions: {},
   modules: {},

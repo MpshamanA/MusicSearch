@@ -4,9 +4,20 @@ import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
 import axios from "axios";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
 
 Vue.config.productionTip = false;
 Vue.prototype.$axios = axios;
+
+//firebaseからコピー
+/*************************************************/
+
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+/*************************************************/
 
 new Vue({
   router,

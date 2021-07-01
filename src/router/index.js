@@ -13,20 +13,27 @@ const routes = [
   {
     path: "/about",
     name: "About",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    component: () => import("../views/About.vue"),
   },
   {
     path: "/main",
     name: "Main",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Main.vue"),
+    component: () => import("../views/Main.vue"),
   },
   {
     path: "/main/:keyword",
     name: "MainKeyword",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Main.vue"),
+    component: () => import("../views/Main.vue"),
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: () => import("../views/Register.vue"),
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: () => import("../views/login.vue"),
   },
 ];
 
