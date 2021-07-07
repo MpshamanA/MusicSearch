@@ -14,7 +14,6 @@ Vue.prototype.$axios = axios;
 //firebaseからコピー
 /*************************************************/
 
-};
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 /*************************************************/

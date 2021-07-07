@@ -1,5 +1,5 @@
 <template>
-  <v-card min-height="100vh" width="230" dark>
+  <v-card min-height="100vh" width="230" dark v-if="!sideTggle">
     <v-navigation-drawer permanent>
       <v-list-item>
         <v-list-item-content>
@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -66,6 +67,12 @@ export default {
       ],
       right: null,
     };
+  },
+  //後にwatchした時に変更する
+  computed: {
+    ...mapState({
+      sideTggle: "sideToggle",
+    }),
   },
 };
 </script>

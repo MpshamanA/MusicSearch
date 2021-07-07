@@ -48,7 +48,7 @@ export default {
   methods: {
     login() {
       axios
-        .post("", {
+        .post("/", {
           email: this.email,
           password: this.password,
           returnSecureToken: true,

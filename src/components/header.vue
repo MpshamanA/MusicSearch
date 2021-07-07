@@ -2,7 +2,7 @@
   <div>
     <!-- ヘッダー -->
     <v-app-bar dark>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="sideSwich()"></v-app-bar-nav-icon>
 
       <v-toolbar-title>MusicSearch</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -50,6 +50,7 @@
   </div>
 </template>
 <script>
+//import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -87,11 +88,21 @@ export default {
             `https://itunes.apple.com/search?term=${this.$route.params.keyword}&entity=album`
           )
           .then((response) => {
-            vm.$store.state.albums = response.data.results;
-            vm.$store.state.keyword = vm.keyword;
+            vm.$store.commit("updateAlbums", response.data.results);
+            vm.$store.commit("updateKeyword", vm.keyword);
           });
       }
     },
+    sideSwich() {
+      this.$store.commit("sideSwich");
+      console.log(this.$store.state.sideTggle);
+    },
+  },
+  computed: {
+    /* 
+    ...mapState({
+      sideTggle: "sideTggle",
+    }), */
   },
   created() {},
   mounted() {
